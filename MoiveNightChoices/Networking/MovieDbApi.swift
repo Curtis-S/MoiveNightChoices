@@ -20,8 +20,11 @@ class MovieDBApiClient {
         let task = downloader.jsonTask(with: endpoint.request, ofType: type) { array, error in
             
                 guard let result = array else {
+                    if let error = error{
                     completion(nil, error)
-                    print(error?.localizedDescription)
+                    print(error.localizedDescription)
+                   
+            }
                     return
                 }
             print("got data")
