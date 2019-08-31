@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuViewController: UIViewController {
     
     
     var playerOneIsDecided = false
@@ -39,10 +39,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let endpoint = MoviesDB.genre
-        let searchEndpoint = MoviesDB.search(ids: [18,28,36])
-        print(searchEndpoint.request.url!)
-        print("********************************")
-        print(endpoint.request.url!)
+       
         
        showResultsButton.layer.cornerRadius = 5
        showResultsButton.layer.borderWidth = 1
@@ -161,13 +158,18 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController {
+extension MenuViewController {
     
     
     //helper
     
     
-    func checkIfChanges (){
+    func resetApp (){
+        playerOneIsDecided = false
+        playerTwoIsDecided = false
+        pickedGenres = nil
+        checkIfPlayerHasChosen()
+        
         
     }
 }
